@@ -2,20 +2,28 @@ from importlib.resources import path
 from pathlib import Path
 from selenium import webdriver
 from bs4 import BeautifulSoup
+import json
 # from selenium.webdriver.common.keys import Keys
 # from selenium.webdriver.common.by import By
 path=r"C:\Users\Simon\Documents\GitHub\real-estate-price-predictions\chromedriver.exe"
 driver=webdriver.Chrome(path)
 
 
-#property listing has different sub urls than the actual property page sub url!!
+# property listing has different sub urls than the actual property page sub url!!
 root_url="https://www.immoweb.be/en"
 property_url="/classified/apartment/for-sale/gavere/9890/10146915?searchId=633d38c4ccc41"
 listing_url="/search/apartment/for-sale?countries=BE"
 test_url=""
-driver.get({root_url, })
+driver.get({root_url, property_url})
 print(driver.title)
 
+
+
+
+# string = "..." # = the text inside the second script tag
+# string = string[string.find('{'):string.rfind('}')+1]
+# string = dict(json.loads(string))
+# print(string['classified']['price'])
 
 
 
